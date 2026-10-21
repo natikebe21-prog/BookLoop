@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BookLoop | Book Exchange</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <header>
+        <div class="logo">BookLoop<span>.</span></div>
+
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#books">Browse Books</a>
+            <a href="#add-book">Add a Book</a>
+            <a href="#about">About Us</a>
+            <a href="#contact">Contact</a>
+        </nav>
+
+        <a href="#books" class="nav-button">Explore Books</a>
+    </header>
+
+    <!-- Homepage Welcome Section -->
+    <section id="home" class="hero">
+        <p class="subtitle">SHARE BOOKS. DISCOVER STORIES.</p>
+        <h1>Every Book Deserves a New Reader</h1>
+        <p>Exchange books with fellow readers and give your favorite stories a new home.</p>
+        <a href="#books" class="main-button">Explore Books</a>
+    </section>
+
+    <!-- Browse and Search Books -->
+    <section class="books" id="books">
+
+        <div class="section-heading">
+            <p class="subtitle">DISCOVER YOUR NEXT READ</p>
+            <h2>Find Your Next Book</h2>
+            <p>Search books and discover your next exchange.</p>
+        </div>
+
+        <div class="search-area">
+            <input
+                type="search"
+                id="searchInput"
+                placeholder="Search by title, author, or category..."
+                aria-label="Search books">
+
+            <select id="categoryFilter" aria-label="Filter by category">
+                <option value="all">All Categories</option>
+                <option value="fiction">Fiction</option>
+                <option value="self-help">Self-help</option>
+                <option value="education">Education</option>
+                <option value="literature">Literature</option>
+                <option value="science">Science</option>
+            </select>
+        </div>
+
+        <!-- Book Listings -->
+        <div class="book-container" id="bookContainer">
+
+            <div class="book-card"
+                 data-title="The Midnight Library"
+                 data-author="Matt Haig"
+                 data-category="fiction">
+
+                <img
+                    src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?auto=format&fit=crop&w=500&q=80"
+                    alt="The Midnight Library book cover">
+
+                <h3>The Midnight Library</h3>
+                <p>Author: Matt Haig</p>
+                <p>Category: Fiction</p>
+                <p>Condition: Very good</p>
+
+                <button class="swap-button" type="button"
+                    onclick="showBook('The Midnight Library')">
+                    View Book
+                </button>
+            </div>
+
+            <div class="book-card"
+                 data-title="Atomic Habits"
+                 data-author="James Clear"
+                 data-category="self-help">
+
+                <img
+                    src="https://images.unsplash.com/photo-1519682337058-a94d519337bc?auto=format&fit=crop&w=500&q=80"
+                    alt="Books">
+
+                <h3>Atomic Habits</h3>
+                <p>Author: James Clear</p>
+                <p>Category: Self-help</p>
+                <p>Condition: Good</p>
+
+                <button class="swap-button" type="button"
+                    onclick="showBook('Atomic Habits')">
+                    View Book
+                </button>
+            </div>
+
+            <div class="book-card"
+                 data-title="Pride and Prejudice"
+                 data-author="Jane Austen"
+                 data-category="literature">
+
+                <img
+                    src="https://images.unsplash.com/photo-1516979187457-637abb4f9353?auto=format&fit=crop&w=500&q=80"
+                    alt="An open book">
+
+                <h3>Pride and Prejudice</h3>
+                <p>Author: Jane Austen</p>
+                <p>Category: Literature</p>
+                <p>Condition: Like new</p>
+
+                <button class="swap-button" type="button"
+                    onclick="showBook('Pride and Prejudice')">
+                    View Book
+                </button>
+            </div>
+
+        </div>
+
+        <p id="noResults" class="no-results" hidden>
+            No books found. Try another search.
+        </p>
+
+    </section>
+
+    <!-- Add a Book Section -->
+    <section class="add-book" id="add-book">
+
+        <div class="section-heading">
+            <p class="subtitle">SHARE YOUR STORIES</p>
+            <h2>Give Your Book a New Home</h2>
+            <p>List a book you would love to exchange with another reader.</p>
+        </div>
+
+        <form id="addBookForm">
+
+            <div class="form-group">
+                <label for="bookTitle">Book Title *</label>
+                <input
+                    type="text"
+                    id="bookTitle"
+                    placeholder="Enter the book title"
+                    required>
+            </div>
+
+            <div class="form-group">
+                <label for="bookAuthor">Author *</label>
+                <input
+                    type="text"
+                    id="bookAuthor"
+                    placeholder="Enter the author's name"
+                    required>
+            </div>
+
+            <div class="form-group">
+                <label for="bookCategory">Category *</label>
+                <select id="bookCategory" required>
+                    <option value="">Choose a category</option>
+                    <option value="fiction">Fiction</option>
+                    <option value="self-help">Self-help</option>
+                    <option value="education">Education</option>
+                    <option value="literature">Literature</option>
+                    <option value="science">Science</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="bookCondition">Book Condition *</label>
+                <select id="bookCondition" required>
+                    <option value="">Choose condition</option>
+                    <option value="Like new">Like new</option>
+                    <option value="Very good">Very good</option>
+                    <option value="Good">Good</option>
+                    <option value="Acceptable">Acceptable</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="bookDescription">Description</label>
+                <textarea
+                    id="bookDescription"
+                    rows="4"
+                    placeholder="Tell readers about your book..."></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="bookImage">Book Cover Image</label>
+                <input
+                    type="file"
+                    id="bookImage"
+                    accept="image/*">
+                <small>Choose an image from your phone.</small>
+            </div>
+
+            <button type="submit" class="main-button">
+                Add My Book
+            </button>
+
+            <p id="formMessage" role="status"></p>
+
+        </form>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <h2>Why BookLoop?</h2>
+        <p>
+            We believe every book deserves another reader.
+            Our platform helps people exchange books, save money,
+            and build a community of book lovers.
+        </p>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <h2>BookLoop<span>.</span></h2>
+        <p>Share books. Discover stories. Connect with readers.</p>
+        <p>&copy; 2026 BookLoop. All rights reserved.</p>
+    </footer>
+<!-- Custom Confirmation Modal -->
+<div id="customModal" class="modal-overlay" style="display: none;">
+    <div class="modal-box">
+        <h3 id="modalTitle">Confirm Action</h3>
+        <p id="modalMessage">Are you sure?</p>
+        <div id="modalInputContainer" style="display: none; margin-bottom: 15px;">
+            <input type="text" id="modalInput" class="form-group input" style="width: 100%; padding: 10px; border: 1px solid #d8ded5; border-radius: 5px;" />
+        </div>
+        <div class="modal-buttons" style="display: flex; gap: 10px; justify-content: flex-end;">
+            <button type="button" id="modalNoBtn" class="swap-button" style="background-color: #74776f;">No</button>
+            <button type="button" id="modalYesBtn" class="main-button">Yes</button>
+        </div>
+    </div>
+</div>
+
+    <script src="script.js"></script>
+  
+</body>
+
+</html>
