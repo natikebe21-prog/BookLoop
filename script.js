@@ -3,6 +3,20 @@
 // Add, View, Search, Filter, Edit and Delete
 // ========================================
 
+
+// You can paste this at the VERY TOP of your script.js file
+document.getElementById('google-login-btn').addEventListener('click', () => {
+  // This will send the user to our Worker's login route
+  window.location.href = '/api/login';
+});
+
+// ------------------------------------------
+// Below this, keep all your existing JavaScript code!
+// (For example, any code you already wrote for your books or website)
+// ------------------------------------------
+
+
+
 document.addEventListener("DOMContentLoaded", function () {
     const searchInput = document.getElementById("searchInput");
     const categoryFilter = document.getElementById("categoryFilter");
